@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h2> <%= @boat.name %> </h2>
+
+	
+	<%= image_tag @boat.photo.url(:medium) %>
+	
+
+<h2><%= @boat.containers %> </h2>
+
+<h2><%= @boat.location %> </h2>
+
+<% @boat.jobs.each do |job| %>
+	<p><%= link_to job.id, job_path(job) %></p>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_boat_path(@boat) %> |
+<%= link_to 'Back', boats_path %>

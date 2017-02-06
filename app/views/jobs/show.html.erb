@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+     
+ <div class="showjobs"     
+<h2> <%= @job.description %> </h2>
+<br>
+<h2><%= @job.origin %> </h2>
+<br>
+<h2><%= @job.destination %> </h2>
+<br>
+<h2><%= @job.cost %> </h2>
+<br>
+<h2><%= @job.amount %> </h2>
+<br>
+</div>
+<% @job.boats.each do |boat| %>
+	<p><%= link_to boat.id, boat_path(boat) %></p>
+<% end %>
+
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>

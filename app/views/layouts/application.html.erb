@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shipped</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+   <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:3000/login">Login</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="http://localhost:3000/boats">Boat <span class="sr-only">(current)</span></a></li>
+        <li><a href="http://localhost:3000/jobs">Job</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="http://localhost:3000/boats/1">Boat 1</a></li>
+            <li class="divider"></li>
+            <li><a href="http://localhost:3000/boats/2">Boat 2</a></li>
+            <li class="divider"></li>
+            <li><a href="http://localhost:3000/boats/3">Boat 3</a></li>
+            <li class="divider"></li>
+            <li><a href="http://localhost:3000/boats/4">Boat 4</a></li>
+            <li class="divider"></li>
+            <li><a href="http://localhost:3000/boats/5">Boat 5</a></li>
+          </ul>
+        </li>
+      </ul>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+  	<div> 
+
+  		<% if @current_user.present? %>
+      <div class="container">
+  		  <h3><%= @current_user.username %> is logged in </h3>
+      </div>
+      <div class="container">
+  		  <td><%= link_to 'Logout', logout_path, method: :delete, data: { confirm: 'Are you sure you want to logout?' } %></td>
+      </div>
+  		<% end %>
+  	</div>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>
